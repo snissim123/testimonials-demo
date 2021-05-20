@@ -1,59 +1,62 @@
-(function(){
-    const customerImage = document.querySelector('#customer-img')
-    const customerName = document.querySelector('#customer-name')
-    const customerText = document.querySelector('#customer-text')
-    const buttons = document.querySelectorAll('.btn')
-    let index = 0
-    const customers = []
+let index = 0;
+const customerNames = ["Sarah", "Z", "Esther", "Sandra"];
+const customerTestimonials = [
+    'Janice is awesome. Janice is awesome. Janice is awesome. Janice is awesome. Janice is awesome. Janice is awesome. Janice is awesome.',
+    'Andrea rocks. Andrea rocks. Andrea rocks. Andrea rocks. Andrea rocks. Andrea rocks.',
+    'Rhonda is awesome. Rhonda is awesome. Rhonda is awesome. Rhonda is awesome. Rhonda is awesome. Rhonda is awesome. Rhonda is awesome. Rhonda is awesome.',
+    'Semra rocks. Semra rocks. Semra rocks. Semra rocks. Semra rocks. Semra rocks. Semra rocks. Semra rocks.'
+];
+const customerCount = customerNames.length - 1;
 
-    //Create a new customer using a customer constructor
+// Run this function after the page is loaded
+document.addEventListener("DOMContentLoaded", function(){
+    console.log("Hello, webpage!");
+    document.getElementById("customer-name").textContent = customerNames[index];
+    document.getElementById("customer-text").textContent = customerTestimonials[index];
     
-    //Customer Constructor
-    function Customer(img, name, text) {
-        this.img = img
-        this.name = name
-        this.text = text
-    }
-
-    //Create new customer using the constructor function
-
-    function createCustomer(img, name, text) {
-
-        let fullImg = `./img/customer-${img}.jpg`
-        let customer = new Customer(fullImg, name, text)
-
-        customers.push(customer)
-    }
-
     
-    createCustomer(0, 'John', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis neque reprehenderit laborum, corporis explicabo assumenda. Porro impedit consectetur animi, reprehenderit recusandae sapiente at aliquam reiciendis modi ipsam rerum suscipit distinctio?')
-    createCustomer(1, 'Sandy', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock')
-    createCustomer(2, 'Amy', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable.')
-    createCustomer(3, 'Tyrell', 'If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.')
-    createCustomer(4, 'Wanda', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.')
-    
+});
 
-    buttons.forEach(function(button){
-        button.addEventListener('click', function(e){
-            if (e.target.parentElement.classList.contains('prevBtn')){
-               if(index === 0){
-                    index = customers.length
-               }
-               index--
-               customerImage.src = customers[index].img
-               customerName.textContent = customers[index].name
-               customerText.textContent = customers[index].text
-            }
-            if (e.target.parentElement.classList.contains('nextBtn')){
-                index++
-                if(index === customers.length){
-                     index = 0
-                }
-                customerImage.src = customers[index].img
-                customerName.textContent = customers[index].name
-                customerText.textContent = customers[index].text
-             }
-        })
-    })
-    
-})()
+function prevButton() {
+    if (index == 0) index = customerCount;
+    else index--;
+    document.getElementById("customer-name").textContent = customerNames[index];
+    document.getElementById("customer-text").textContent = customerTestimonials[index];
+    document.getElementById("customer-img").setAttribute("src", './img/customer-' + index + '.jpg');
+}
+
+function nextButton() {
+    if (index == customerCount) index = 0;
+    else index++;
+    document.getElementById("customer-name").textContent = customerNames[index];
+    document.getElementById("customer-text").textContent = customerTestimonials[index];
+    document.getElementById("customer-img").setAttribute("src", './img/customer-' + index + '.jpg');
+}
+
+
+var menu = document.querySelector(".menu")
+var ham = document.querySelector(".ham")
+var xIcon = document.querySelector(".xIcon")
+var menuIcon = document.querySelector(".menuIcon")
+
+ham.addEventListener("click", toggleMenu)
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    xIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    xIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
+}
+
+var menuLinks = document.querySelectorAll(".menuLink")
+
+menuLinks.forEach(
+  function (menuLink) {
+    menuLink.addEventListener("click", toggleMenu)
+  }
+)

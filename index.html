@@ -13,6 +13,7 @@
  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 
  <!-- font awesome -->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <script src="js/all.js"></script>
  <title>Starter Template</title>
  <style>
@@ -20,59 +21,78 @@
 </head>
 
 <body>
-
- <div class="container-fluid">
-  <div class="row max-height align-items-center">
-   <!-- col -->
-   <div class="col-10 mx-auto col-md-6">
-    <div class="row">
-     <div class="col text-center my-5">
-      <h4 class="title-heading text-uppercase">client</h4>
-      <h1 class="title-subheading text-uppercase">testimonials</h1>
-     </div>
+    <button class="ham">
+        <!-- X and menu icon SVGs from material icons https://material.io/resources/icons/ -->
+        <span class="menuIcon material-icons">
+          menu
+        </span>
+        <span class="xIcon material-icons">
+          close
+        </span>
+      </button>
+      <ul class="menu">
+        <li><a class="menuLink" href="#">About</a></li>
+        <li><a class="menuLink" href="#testimonials">Testimonials</a></li>
+      </ul>
+    <div class="about-me">
+        <h3 style="text-align:center;padding: 5%;">Web Dev + Designer</h3>
+        <p>Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool.</p>
+        <p>Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool.</p>
+        <p>Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool. Coding is cool. Web dev is cool. JavaScript is cool.</p>
+        <div class="btn-box">
+            <a href="#testimonials" class="testimonials-button">TESTIMONIALS</a>
+        </div>
+        
     </div>
 
-    <div class="card my-5 text-center customer-card ">
-     <img src="img/customer-0.jpg" width="150" id="customer-img" class="img-card mx-auto" alt="">
-     <h4 id="customer-name" class="text-uppercase">customer name</h4>
-     <div class="review-icons my-2">
-      <span class="star-icon">
-       <i class="fas fa-star"></i>
-      </span>
-      <span class="star-icon">
-       <i class="fas fa-star"></i>
-      </span>
-      <span class="star-icon">
-       <i class="fas fa-star"></i>
-      </span>
-      <span class="star-icon">
-       <i class="fas fa-star"></i>
-      </span>
-      <span class="star-icon">
-       <i class="fas fa-star-half"></i>
-      </span>
-     </div>
-     <p id="customer-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam sit voluptatum illo? Quae fugiat
-      aspernatur harum aperiam, quis eos officia.</p>
-     <span class="quote-icon">
-      <i class="fas fa-quote-left"></i>
-     </span>
-     <a href="#" class="btn prevBtn"><i class="fas fa-chevron-left"></i></a>
-     <a href="#" class="btn nextBtn"><i class="fas fa-chevron-right"></i></a>
+    <div id="testimonials">
+        <div class="container-fluid">
+            <div class="row max-height align-items-center">
+             <!-- col -->
+             <div class="col-10 mx-auto col-md-6">
+              <div class="row">
+               <div class="col text-center my-5">
+                <h4 class="title-heading text-uppercase">client</h4>
+                <h1 class="title-subheading text-uppercase">testimonials</h1>
+               </div>
+              </div>
+          
+              <div class="card my-5 text-center customer-card ">
+               <img src="img/customer-0.jpg" width="150" id="customer-img" class="img-card mx-auto" alt="">
+               <h4 id="customer-name" class="text-uppercase">customer name</h4>
+               <div class="review-icons my-2">
+                <span class="star-icon">
+                 <i class="fas fa-star"></i>
+                </span>
+                <span class="star-icon">
+                 <i class="fas fa-star"></i>
+                </span>
+                <span class="star-icon">
+                 <i class="fas fa-star"></i>
+                </span>
+                <span class="star-icon">
+                 <i class="fas fa-star"></i>
+                </span>
+                <span class="star-icon">
+                 <i class="fas fa-star-half"></i>
+                </span>
+               </div>
+               <p id="customer-text">customer testimonial</p>
+               <span class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+               </span>
+               <a href="#testimonials" onclick="prevButton()" class="btn prevBtn"><i class="fas fa-chevron-left"></i></a>
+               <a href="#testimonials" onclick="nextButton()" class="btn nextBtn"><i class="fas fa-chevron-right"></i></a>
+              </div>
+             </div>
+             <!-- end of col -->
+            </div>
+           </div>
     </div>
-   </div>
-   <!-- end of col -->
-  </div>
- </div>
 
 
-
- <!-- jquery -->
- <script src="js/jquery-3.3.1.min.js"></script>
- <!-- bootstrap js -->
- <script src="js/bootstrap.bundle.min.js"></script>
- <!-- script js -->
- <script src="js/app.js"></script>
+    
+<script src="js/app.js"></script>
 </body>
 
 </html>
